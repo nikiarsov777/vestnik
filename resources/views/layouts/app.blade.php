@@ -21,7 +21,8 @@
     <link href="{{ URL::asset('assets/admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template-->
-    <link href="{{ URL::asset('assets/admin/css/sb-admin-2.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('assets/admin/css/sb-admin-2.css') }}" rel="stylesheet" type="text/css">
+
 </head>
 <body class="bg-gradient-primary">
     <div id="app">
@@ -84,14 +85,5 @@
         </main>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ URL::asset('assets/admin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ URL::asset('assets/admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ URL::asset('assets/admin/js/sb-admin-2.min.js') }}"></script>
 </body>
 </html>
