@@ -14,12 +14,16 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('css/nunito.css') }}">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="{{ URL::asset('assets/admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="{{ URL::asset('assets/admin/css/sb-admin-2.min.css') }}" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="bg-gradient-primary">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -79,5 +83,15 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ URL::asset('assets/admin/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{ URL::asset('assets/admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{ URL::asset('assets/admin/js/sb-admin-2.min.js') }}"></script>
 </body>
 </html>

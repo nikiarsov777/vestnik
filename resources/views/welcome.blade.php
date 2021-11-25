@@ -7,9 +7,9 @@
         <title>Laravel</title>
 
 
-        <link rel="stylesheet" href="{{ URL::asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}" />
+        <link rel="stylesheet" href="{{ URL::asset('assets/main/vendors/mdi/css/materialdesignicons.min.css') }}" />
 
-        <link rel="stylesheet" href="{{ URL::asset('assets/vendors/aos/dist/aos.css/aos.css') }}" />
+        <link rel="stylesheet" href="{{ URL::asset('assets/main/vendors/aos/dist/aos.css/aos.css') }}" />
 
         <!-- End plugin css for this page -->
         <link rel="shortcut icon" href="{{ URL::asset('images/favicon.ico') }}" />
@@ -50,10 +50,10 @@
                                             <a href="#" class="nav-link"><i class="mdi mdi-magnify"></i></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Login</a>
+                                            <a href="/home" class="nav-link">Вход</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Sign in</a>
+                                            <a href="register" class="nav-link">Регистрация</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -62,7 +62,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <a class="navbar-brand" href="#"
-                                        ><img src="assets/images/logo.svg" alt=""
+                                        ><img src="assets/main/images/logo.svg" alt=""
                                             /></a>
                                     </div>
                                     <div>
@@ -162,7 +162,7 @@
                             <div class="col-xl-8 stretch-card grid-margin">
                                 <div class="position-relative">
                                     <img
-                                        src="assets/images/dashboard/banner.jpg"
+                                        src="assets/main/images/dashboard/banner.jpg"
                                         alt="banner"
                                         class="img-fluid"
                                     />
@@ -197,7 +197,7 @@
                                             </div>
                                             <div class="rotate-img">
                                                 <img
-                                                    src="assets/images/dashboard/home_1.jpg"
+                                                    src="assets/main/images/dashboard/home_1.jpg"
                                                     alt="thumb"
                                                     class="img-fluid img-lg"
                                                 />
@@ -215,7 +215,7 @@
                                             </div>
                                             <div class="rotate-img">
                                                 <img
-                                                    src="assets/images/dashboard/home_2.jpg"
+                                                    src="assets/main/images/dashboard/home_2.jpg"
                                                     alt="thumb"
                                                     class="img-fluid img-lg"
                                                 />
@@ -233,7 +233,7 @@
                                             </div>
                                             <div class="rotate-img">
                                                 <img
-                                                    src="assets/images/dashboard/home_3.jpg"
+                                                    src="assets/main/images/dashboard/home_3.jpg"
                                                     alt="thumb"
                                                     class="img-fluid img-lg"
                                                 />
@@ -273,7 +273,7 @@
                                                 <div class="position-relative">
                                                     <div class="rotate-img">
                                                         <img
-                                                            src="assets/images/dashboard/home_4.jpg"
+                                                            src="assets/main/images/dashboard/home_4.jpg"
                                                             alt="thumb"
                                                             class="img-fluid"
                                                         />
@@ -305,7 +305,7 @@
                                                 <div class="position-relative">
                                                     <div class="rotate-img">
                                                         <img
-                                                            src="assets/images/dashboard/home_5.jpg"
+                                                            src="assets/main/images/dashboard/home_5.jpg"
                                                             alt="thumb"
                                                             class="img-fluid"
                                                         />
@@ -336,7 +336,7 @@
                                                 <div class="position-relative">
                                                     <div class="rotate-img">
                                                         <img
-                                                            src="assets/images/dashboard/home_6.jpg"
+                                                            src="assets/main/images/dashboard/home_6.jpg"
                                                             alt="thumb"
                                                             class="img-fluid"
                                                         />
@@ -379,7 +379,7 @@
                                                         <div class="position-relative">
                                                             <div class="rotate-img">
                                                                 <img
-                                                                    src="assets/images/dashboard/home_7.jpg"
+                                                                    src="assets/main/images/dashboard/home_7.jpg"
                                                                     alt="thumb"
                                                                     class="img-fluid"
                                                                 />
@@ -404,7 +404,7 @@
                                                         <div class="position-relative">
                                                             <div class="rotate-img">
                                                                 <img
-                                                                    src="assets/images/dashboard/home_8.jpg"
+                                                                    src="assets/main/images/dashboard/home_8.jpg"
                                                                     alt="thumb"
                                                                     class="img-fluid"
                                                                 />
@@ -430,7 +430,7 @@
                                                         <div class="position-relative">
                                                             <div class="rotate-img">
                                                                 <img
-                                                                    src="assets/images/dashboard/home_9.jpg"
+                                                                    src="assets/main/images/dashboard/home_9.jpg"
                                                                     alt="thumb"
                                                                     class="img-fluid"
                                                                 />
@@ -455,7 +455,7 @@
                                                         <div class="position-relative">
                                                             <div class="rotate-img">
                                                                 <img
-                                                                    src="assets/images/dashboard/home_10.jpg"
+                                                                    src="assets/main/images/dashboard/home_10.jpg"
                                                                     alt="thumb"
                                                                     class="img-fluid"
                                                                 />
@@ -492,7 +492,7 @@
                                                     <div class="div-w-80 mr-3">
                                                         <div class="rotate-img">
                                                             <img
-                                                                src="assets/images/dashboard/home_11.jpg"
+                                                                src="assets/main/images/dashboard/home_11.jpg"
                                                                 alt="thumb"
                                                                 class="img-fluid"
                                                             />
@@ -508,7 +508,7 @@
                                                     <div class="div-w-80 mr-3">
                                                         <div class="rotate-img">
                                                             <img
-                                                                src="assets/images/dashboard/home_12.jpg"
+                                                                src="assets/main/images/dashboard/home_12.jpg"
                                                                 alt="thumb"
                                                                 class="img-fluid"
                                                             />
@@ -524,7 +524,7 @@
                                                     <div class="div-w-80 mr-3">
                                                         <div class="rotate-img">
                                                             <img
-                                                                src="assets/images/dashboard/home_13.jpg"
+                                                                src="assets/main/images/dashboard/home_13.jpg"
                                                                 alt="thumb"
                                                                 class="img-fluid"
                                                             />
@@ -540,7 +540,7 @@
                                                     <div class="div-w-80 mr-3">
                                                         <div class="rotate-img">
                                                             <img
-                                                                src="assets/images/dashboard/home_14.jpg"
+                                                                src="assets/main/images/dashboard/home_14.jpg"
                                                                 alt="thumb"
                                                                 class="img-fluid"
                                                             />
@@ -556,7 +556,7 @@
                                                     <div class="div-w-80 mr-3">
                                                         <div class="rotate-img">
                                                             <img
-                                                                src="assets/images/dashboard/home_15.jpg"
+                                                                src="assets/main/images/dashboard/home_15.jpg"
                                                                 alt="thumb"
                                                                 class="img-fluid"
                                                             />
@@ -585,7 +585,7 @@
                                                     <div class="col-xl-6 col-lg-8 col-sm-6">
                                                         <div class="rotate-img">
                                                             <img
-                                                                src="assets/images/dashboard/home_16.jpg"
+                                                                src="assets/main/images/dashboard/home_16.jpg"
                                                                 alt="thumb"
                                                                 class="img-fluid"
                                                             />
@@ -662,7 +662,7 @@
                                                         <div class="border-bottom pb-3">
                                                             <div class="rotate-img">
                                                                 <img
-                                                                    src="assets/images/dashboard/home_17.jpg"
+                                                                    src="assets/main/images/dashboard/home_17.jpg"
                                                                     alt="thumb"
                                                                     class="img-fluid"
                                                                 />
@@ -677,7 +677,7 @@
                                                         <div class="pt-3 pb-3">
                                                             <div class="rotate-img">
                                                                 <img
-                                                                    src="assets/images/dashboard/home_18.jpg"
+                                                                    src="assets/main/images/dashboard/home_18.jpg"
                                                                     alt="thumb"
                                                                     class="img-fluid"
                                                                 />
@@ -701,7 +701,7 @@
                                                                         <div class="col-sm-5 pr-2">
                                                                             <div class="rotate-img">
                                                                                 <img
-                                                                                    src="assets/images/dashboard/home_19.jpg"
+                                                                                    src="assets/main/images/dashboard/home_19.jpg"
                                                                                     alt="thumb"
                                                                                     class="img-fluid w-100"
                                                                                 />
@@ -730,7 +730,7 @@
                                                                         <div class="col-sm-5 pr-2">
                                                                             <div class="rotate-img">
                                                                                 <img
-                                                                                    src="assets/images/dashboard/home_20.jpg"
+                                                                                    src="assets/main/images/dashboard/home_20.jpg"
                                                                                     alt="thumb"
                                                                                     class="img-fluid w-100"
                                                                                 />
@@ -759,7 +759,7 @@
                                                                         <div class="col-sm-5 pr-2">
                                                                             <div class="rotate-img">
                                                                                 <img
-                                                                                    src="assets/images/dashboard/home_21.jpg"
+                                                                                    src="assets/main/images/dashboard/home_21.jpg"
                                                                                     alt="thumb"
                                                                                     class="img-fluid w-100"
                                                                                 />
@@ -788,7 +788,7 @@
                                                                         <div class="col-sm-5 pr-2">
                                                                             <div class="rotate-img">
                                                                                 <img
-                                                                                    src="assets/images/dashboard/home_22.jpg"
+                                                                                    src="assets/main/images/dashboard/home_22.jpg"
                                                                                     alt="thumb"
                                                                                     class="img-fluid w-100"
                                                                                 />
@@ -829,7 +829,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <img src="assets/images/logo.svg" class="footer-logo" alt="" />
+                                    <img src="assets/main/images/logo.svg" class="footer-logo" alt="" />
                                     <h5 class="font-weight-normal mt-4 mb-5">
                                         Newspaper is your news, entertainment, music fashion website. We
                                         provide you with the latest breaking news and videos straight from
@@ -861,7 +861,7 @@
                                                 <div class="row">
                                                     <div class="col-3">
                                                         <img
-                                                            src="assets/images/dashboard/home_1.jpg"
+                                                            src="assets/main/images/dashboard/home_1.jpg"
                                                             alt="thumb"
                                                             class="img-fluid"
                                                         />
@@ -882,7 +882,7 @@
                                                 <div class="row">
                                                     <div class="col-3">
                                                         <img
-                                                            src="assets/images/dashboard/home_2.jpg"
+                                                            src="assets/main/images/dashboard/home_2.jpg"
                                                             alt="thumb"
                                                             class="img-fluid"
                                                         />
@@ -903,7 +903,7 @@
                                                 <div class="row">
                                                     <div class="col-3">
                                                         <img
-                                                            src="assets/images/dashboard/home_3.jpg"
+                                                            src="assets/main/images/dashboard/home_3.jpg"
                                                             alt="thumb"
                                                             class="img-fluid"
                                                         />
@@ -977,14 +977,14 @@
             </div>
         </div>
         <!-- inject:js -->
-        <script src="{{ URL::asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
+        <script src="{{ URL::asset('assets/main/vendors/js/vendor.bundle.base.js') }}"></script>
         <!-- endinject -->
         <!-- plugin js for this page -->
-        <script src="{{ URL::asset('assets/vendors/aos/dist/aos.js/aos.js') }}"></script>
+        <script src="{{ URL::asset('assets/main/vendors/aos/dist/aos.js/aos.js') }}"></script>
         <!-- End plugin js for this page -->
         <!-- Custom js for this page-->
-        <script src="{{ URL::asset('assets/js/demo.js') }}"></script>
-        <script src="{{ URL::asset('assets/js/jquery.easeScroll.js') }}"></script>
+        <script src="{{ URL::asset('assets/main/js/demo.js') }}"></script>
+        <script src="{{ URL::asset('assets/main/js/jquery.easeScroll.js') }}"></script>
         <!-- End custom js for this page-->
 
     </body>
