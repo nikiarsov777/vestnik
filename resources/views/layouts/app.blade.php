@@ -17,7 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{ URL::asset('css/nunito.css') }}">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Styles -->
     <!-- Custom fonts for this template-->
