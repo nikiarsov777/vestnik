@@ -9,12 +9,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="shortcut icon" href="{{ URL::asset('images/favicon.ico') }}" />
 
+    <link href="{{ asset('assets/admin/css/sb-admin-2.css') }}" rel="stylesheet">
+    <link href="{{ asset('js/selectinput/src/css/selectinput.css') }}" rel="stylesheet">
     <!-- Fonts -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{ URL::asset('css/nunito.css') }}">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Styles -->
     <!-- Custom fonts for this template-->
@@ -28,15 +31,23 @@
     <link rel="stylesheet" href="{{ URL::asset('assets/main/vendors/aos/dist/aos.css/aos.css') }}" />
 
     <!-- End plugin css for this page -->
-    <link rel="shortcut icon" href="{{ URL::asset('images/favicon.ico') }}" />
 
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
     <!-- endinject -->
+    <script src="{{ asset('js/jquery.min.js') }}" ></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}" ></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" ></script>
+    <script src="{{ asset('assets/admin/vendor/jquery-easing/jquery.easing.min.js') }}" ></script>
+    <script src="{{ asset('assets/admin/js/sb-admin-2.js') }}" ></script>
+
+    <script src="{{ asset('js/selectinput/src/js/selectinput.js') }}" ></script>
+
+    <script src="{{ asset('js/functions.js') }}"></script>
 
 </head>
 <body class="antialiased">
-<div class="container-scroller">
+<div class="container-scroller" id="app">
     <div class="main-panel">
         <header id="header">
             <div class="container">
@@ -49,6 +60,9 @@
         </main>
     </div>
 </div>
+<!-- Scripts -->
+
+
 
 </body>
 </html>
