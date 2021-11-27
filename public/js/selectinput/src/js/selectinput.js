@@ -46,7 +46,7 @@
             dropdownClass: '.dropdown .selectinput', // data-dropdown-class
             listClass: '.dropdown-menu', // data-list-class
             itemClass: '.dropdown-item', // data-item-class
-            toggleClass: '.btn .btn-default', // data-toggle-class
+            toggleClass: '.btn .btn-default .bordered', // data-toggle-class
             toggleText: 'Dropdown', // data-toggle-text
             toggleCaret: '<span class="caret"></span>', // data-toggle-caret
             toggleChange: true, // data-toggle-change
@@ -158,7 +158,7 @@
                                     "value": typeof $(this).attr('value') === "undefined" ? false : $(this).attr('value'),
                                     "active": $(this).prop("selected"),
                                     "disabled": $(this).prop("disabled"),
-                                    "label": $(this).text()
+                                    "label": $(this).text(),
                                 });
                                 if (_this._config.toggleChange === true && $(this).prop("selected") === true) {
                                     _this._config.toggleText = $(this).text();

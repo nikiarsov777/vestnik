@@ -62,26 +62,15 @@ $(function(){
 
     $(document).ready(function () {
 
-        $('#selectinput1').selectinput({
-            toggleText: 'Select option',
-            toggleCaret: '<span class="caret"></span>'
-        });
-
-        $('#selectinput2').selectinput({
-            toggleText: 'Select option',
-            toggleCaret: '<span class="caret"></span>'
-        });
-
-        $('#selectinput3').selectinput({
+        $('#school').selectinput({
             toggleText: 'Type option',
             toggleCaret: '<span class="caret"></span>',
             autocomplete: '/js/selectinput/examples/data.json'
         });
 
-        $('#selectinput4').selectinput({
+        $('#group').selectinput({
             toggleText: 'Select option',
-            toggleCaret: '<span class="caret"></span>',
-            autocomplete: '/js/selectinput/examples/data.json'
+            toggleCaret: '<span class="caret"></span>'
         });
 
     });

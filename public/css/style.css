@@ -2151,7 +2151,7 @@ textarea.form-control {
 }
 
 .invalid-feedback {
-  display: none;
+  display: block;
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
@@ -10864,4 +10864,21 @@ footer .footer-bottom {
   outline: 0;
 }
 
+.leb-lg-12 {
+    width: 180px;
+    height: 99%;
+    text-align: right;
+    text-wrap: normal;
+    padding-top: 14px;
+    font-size: 12px;
+}
+
+.form-control {
+    border-radius: 10rem;
+}
+.bordered {
+    border-width: 1px;
+    border-style: solid;
+    border-color: silver;
+}
 /*# sourceMappingURL=maps/style.css.map */
