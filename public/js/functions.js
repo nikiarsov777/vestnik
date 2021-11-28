@@ -62,11 +62,32 @@ $(function(){
 
     $(document).ready(function () {
 
-        $('#school').selectinput({
-            toggleText: 'Type option',
-            toggleCaret: '<span class="caret"></span>',
-            autocomplete: '/js/selectinput/examples/data.json'
+        var getData = function (request, response) {
+            $.getJSON(
+                "http://vestnik.test/tools/schools",
+                function (data, err) {
+                    if (err !== 'success') {
+                        alert('Something went wrong: ' + err);
+                    }
+                    response(data);
+                });
+        };
+
+        var selectItem = function (event, ui) {
+            $("#school").val(ui.item.value);
+            return false;
+        }
+
+        $("#school").autocomplete({
+            source: getData,
+            select: selectItem,
+            minLength: 2
         });
+        // $('#school').selectinput({
+        //     toggleText: 'Type option',
+        //     toggleCaret: '<span class="caret"></span>',
+        //     autocomplete: getData
+        // });
 
         $('#group').selectinput({
             toggleText: 'Select option',

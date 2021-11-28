@@ -178,6 +178,8 @@ return [
         //LaraAdmin panel
         //Dwij\Laraadmin\LAProviderASDF::class
 
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
     ],
 
     /*

@@ -8,7 +8,7 @@
 
 // Configuration
 
-// Base font size
+// BaseModel font size
 $rfs-base-font-size: 1.25rem !default;
 $rfs-font-size-unit: rem !default;
 
@@ -108,7 +108,7 @@ $rfs-breakpoint-unit-cache: unit($rfs-breakpoint);
       // Calculate difference between given font-size and minimum font-size for given font-size
       $fs-diff: $fs - $fs-min;
 
-      // Base font-size formatting
+      // BaseModel font-size formatting
       // No need to check if the unit is valid, because we did that before
       $min-width: if($rfs-font-size-unit == rem, #{$fs-min / $rfs-rem-value}rem, #{$fs-min}px);
 

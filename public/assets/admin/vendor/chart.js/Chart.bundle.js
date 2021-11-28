@@ -1532,7 +1532,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -3632,7 +3632,7 @@ function unlistenArrayEvents(array, listener) {
 	delete array._chartjs;
 }
 
-// Base class for all dataset controllers (line, bar, etc)
+// BaseModel class for all dataset controllers (line, bar, etc)
 var DatasetController = function(chart, datasetIndex) {
 	this.initialize(chart, datasetIndex);
 };

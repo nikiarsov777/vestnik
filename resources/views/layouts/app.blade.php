@@ -12,11 +12,12 @@
     <link rel="shortcut icon" href="{{ URL::asset('images/favicon.ico') }}" />
 
     <link href="{{ asset('assets/admin/css/sb-admin-2.css') }}" rel="stylesheet">
-    <link href="{{ asset('js/selectinput/src/css/selectinput.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
     <!-- Fonts -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{ URL::asset('css/nunito.css') }}">
+    <link href="{{ asset('assets/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Styles -->

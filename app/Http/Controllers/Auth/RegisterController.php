@@ -62,7 +62,14 @@ class RegisterController extends Controller
             ],
             [
                 'school.gt' => 'Моля, изберете училище!',
+                'school.required' => 'Моля, изберете училище!',
                 'group.gt' => 'Моля, изберете паралелка!',
+                'group.required' => 'Моля, изберете паралелка!',
+                'email.required' => 'Моля, изберете ел. поща!',
+                'email.unique' => 'Тази поща вече е заета!',
+                'password.required' => 'Моля, въведете парола!',
+                'password.confirmed' => 'Паролите не съвпадат!',
+                'password_confirmation.required' => 'Моля, въведете парола за потвърждение!',
             ]
         );
     }

@@ -25,12 +25,15 @@
                                                 <label class=" leb-lg-12" for="school">{{ __('Училище:') }}</label>
                                             </div>
                                             <div class="col-lg-8">
+                                                <input id="school" name="school" class="form-control form-control-user">
+                                                <?php
+                                                /*
                                                 <select id="school" class="form-control form-control-user" placeholder="{{ __('Избери училище...') }}" name="school">
                                                     <option value="0">{{ __('Избери училище') }}</option>
                                                     <option value="1">101 Бачо Киро</option>
                                                     <option value="2">133 Александър Пушкин</option>
                                                     <option value="3">144 Народни Будители</option>
-                                                    <?php
+                                                */
                                                         /*
                                                         <option value="4">Bulgaria</option>
                                                         <option value="5" disabled>Russia</option>
@@ -43,7 +46,11 @@
                                                         <option value="12">Norway</option>
                                                         */
                                                         ?>
+                                                    <?php
+                                                    /*
                                                 </select>
+                                                */
+                                                ?>
                                                 @error('school')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -143,7 +150,7 @@
 
                                         <div class="h4 row">
                                             <div class="col-lg-4 ">
-                                                <label class=" leb-lg-12" for="email">{{ __('Майл:') }}</label>
+                                                <label class=" leb-lg-12" for="email">{{ __('Ел. поща:') }}</label>
                                             </div>
                                             <div class="col-lg-8">
                                                 <input type="email" class="form-control form-control-user"
