@@ -35,8 +35,8 @@ class SchoolTableSeeder extends Seeder
         ];
 
         foreach ($items as $item) {
-            if (School::where('name', $item)->exists()) {
-                $school = School::where('name', $item->name)->first();
+            if (School::where('name', $item['name'])->exists()) {
+                $school = School::where('name', $item['name'])->first();
             } else {
                 $school = new School;
             }
