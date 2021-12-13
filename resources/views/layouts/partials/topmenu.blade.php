@@ -32,6 +32,12 @@
                     </li>
                 @endif
             @else
+                <li class="nav-item ">
+                    <span class="nav-link text-warning" >{{__('Здравей,')}} {{Auth::user()->first_name}}</span>
+                </li>
+                <li class="nav-item ">
+                    <span class="nav-link" >&nbsp;</span>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>

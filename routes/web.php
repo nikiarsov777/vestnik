@@ -19,17 +19,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 Route::get('/tools/schools', [App\Http\Controllers\ToolController::class, 'getSchools']);
