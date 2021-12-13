@@ -14,13 +14,6 @@ class ToolController extends Controller
 
     public function getSchools()
     {
-//        $schools = [
-//            '102 Бачо Киро2',
-//            '133 Ал. Пушкин',
-//            '144 Народни Будители',
-//            'Други'
-//        ];
-
         $toolService = new ToolService();
         $schools = $toolService->getSchools();
 

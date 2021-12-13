@@ -64,10 +64,10 @@
                                         <!--Classes-->
                                         <div class="h4 row">
                                             <div class="col-lg-4">
-                                                <label class=" leb-lg-12" for="group">{{ __('Паралелка:') }}</label>
+                                                <label class=" leb-lg-12" for="class_name">{{ __('Паралелка:') }}</label>
                                             </div>
                                             <div class="col-lg-8">
-                                                <select id="group" class="form-control form-control-user "  name="group">
+                                                <select id="class_name" class="form-control form-control-user "  name="class_name">
                                                     <option value="0">{{ __('Избери паралелка') }}</option>
                                                     <option value="1">А</option>
                                                     <option value="2">Б</option>
@@ -78,7 +78,7 @@
                                                     <option value="7">Ж</option>
                                                     <option value="8">З</option>
                                                 </select>
-                                                @error('group')
+                                                @error('class_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -166,65 +166,85 @@
                                             </div>
                                         </div>
 
-                                            <div class="h4 row">
-                                                <div class="col-lg-4">
-                                                    <label class=" leb-lg-12" for="name">{{ __('Име и фамилия:') }}</label>
-                                                </div>
-                                                <div class="col-lg-8">
-                                                    <input type="name" class="form-control form-control-user"
-                                                           id="name" aria-describedby="nameHelp"
-                                                           placeholder="{{ __('Име и фамилия') }}"
-                                                           class="form-control form-control-user
-                                                            @error('name') is-invalid @enderror" name="name"
-                                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        <div class="h4 row">
+                                            <div class="col-lg-4">
+                                                <label class=" leb-lg-12" for="first_name">{{ __('Име:') }}</label>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <input type="name" class="form-control form-control-user"
+                                                       id="first_name" aria-describedby="nameHelp"
+                                                       placeholder="{{ __('Име') }}"
+                                                       class="form-control form-control-user
+                                                        @error('first_name') is-invalid @enderror" name="first_name"
+                                                       value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
 
-                                                    @error('name')
+                                                @error('first_name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="h4 row">
+                                            <div class="col-lg-4">
+                                                <label class=" leb-lg-12" for="last_name">{{ __('Фамилия:') }}</label>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <input type="name" class="form-control form-control-user"
+                                                       id="name" aria-describedby="nameHelp"
+                                                       placeholder="{{ __('Фамилия') }}"
+                                                       class="form-control form-control-user
+                                                    @error('last_name') is-invalid @enderror" name="last_name"
+                                                       value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+
+                                                @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="h4 row">
+                                            <div class="col-lg-4">
+                                                <label class=" leb-lg-12" for="password">{{ __('Парола:') }}</label>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <input type="password" class="form-control form-control-user"
+                                                       id="password" aria-describedby="passwordHelp"
+                                                       placeholder="{{ __('Парола') }}"
+                                                       class="form-control form-control-user
+                                                       @error('password') is-invalid @enderror" name="password"
+                                                       value="{{ old('password') }}" required autocomplete="new-password" autofocus>
+
+                                                    @error('password')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                     @enderror
-                                                </div>
                                             </div>
+                                        </div>
 
-                                            <div class="h4 row">
-                                                <div class="col-lg-4">
-                                                    <label class=" leb-lg-12" for="password">{{ __('Парола:') }}</label>
-                                                </div>
-                                                <div class="col-lg-8">
-                                                    <input type="password" class="form-control form-control-user"
-                                                           id="password" aria-describedby="passwordHelp"
-                                                           placeholder="{{ __('Парола') }}"
-                                                           class="form-control form-control-user
-                                                           @error('password') is-invalid @enderror" name="password"
-                                                           value="{{ old('password') }}" required autocomplete="new-password" autofocus>
-
-                                                        @error('password')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                        @enderror
-                                                </div>
+                                        <div class="h4 row">
+                                            <div class="col-lg-4">
+                                                <label class=" leb-lg-12" for="password-confirm">{{ __('Повтори паролата:') }}</label>
                                             </div>
+                                            <div class="col-lg-8">
+                                                <input type="password" class="form-control form-control-user"
+                                                       id="password-confirm" aria-describedby="password-confirmHelp"
+                                                       placeholder="{{ __('Повтори паролата') }}"
+                                                       class="form-control form-control-user
+                                                       @error('password_confirmation') is-invalid @enderror" name="password_confirmation"
+                                                       value="{{ old('password') }}" required autocomplete="new-password" autofocus>
+                                                @error('password_confirmation')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
 
-                                            <div class="h4 row">
-                                                <div class="col-lg-4">
-                                                    <label class=" leb-lg-12" for="password-confirm">{{ __('Повтори паролата:') }}</label>
-                                                </div>
-                                                <div class="col-lg-8">
-                                                    <input type="password" class="form-control form-control-user"
-                                                           id="password-confirm" aria-describedby="password-confirmHelp"
-                                                           placeholder="{{ __('Повтори паролата') }}"
-                                                           class="form-control form-control-user
-                                                           @error('password_confirmation') is-invalid @enderror" name="password_confirmation"
-                                                           value="{{ old('password') }}" required autocomplete="new-password" autofocus>
-                                                    @error('password_confirmation')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-
-                                                </div>
                                             </div>
+                                        </div>
 
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             {{ __('Регистрация') }}

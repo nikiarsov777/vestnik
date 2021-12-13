@@ -89,7 +89,7 @@ $(function(){
         //     autocomplete: getData
         // });
 
-        $('#group').selectinput({
+        $('#class_name').selectinput({
             toggleText: 'Select option',
             toggleCaret: '<span class="caret"></span>'
         });
