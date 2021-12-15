@@ -64,17 +64,24 @@ $(function(){
 
         var getData = function (request, response) {
             $.getJSON(
-                "http://vestnik.test/tools/schools",
+                "http://vestnik.test/tools/schools/" + request.term,
                 function (data, err) {
                     if (err !== 'success') {
                         alert('Something went wrong: ' + err);
                     }
-                    response(data);
+
+                    response($.map(data, function (item) {
+                        return {
+                            label: item['name'],
+                            value: item['id']
+                        }
+                    }));
                 });
         };
 
         var selectItem = function (event, ui) {
-            $("#school").val(ui.item.value);
+            $("#school").val(ui.item.label);
+            $("#school_id").val(ui.item.value);
             return false;
         }
 

@@ -18,7 +18,6 @@ class AlterUsers extends Migration
             $table->char('class_name')->nullable()->default(null)->index();
             $table->renameColumn('name', 'first_name');
             $table->string('last_name')->nullable()->default(null)->index();
-            $table->unsignedBigInteger('id_role')->nullable()->default(null)->index();
         });
     }
 

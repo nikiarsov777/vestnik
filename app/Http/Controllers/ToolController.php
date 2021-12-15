@@ -12,10 +12,10 @@ class ToolController extends Controller
 
     }
 
-    public function getSchools()
+    public function getSchools(string $name)
     {
         $toolService = new ToolService();
-        $schools = $toolService->getSchools();
+        $schools = $toolService->getSchools($name);
 
         return response()->json($schools, 202,
             [

@@ -26,6 +26,7 @@
                                             </div>
                                             <div class="col-lg-8">
                                                 <input id="school" name="school" class="form-control form-control-user">
+                                                <input id="school_id" name="school_id" type="hidden">
                                                 <?php
                                                 /*
                                                 <select id="school" class="form-control form-control-user" placeholder="{{ __('Избери училище...') }}" name="school">
@@ -192,13 +193,13 @@
                                             </div>
                                             <div class="col-lg-8">
                                                 <input type="name" class="form-control form-control-user"
-                                                       id="name" aria-describedby="nameHelp"
+                                                       id="last_name" aria-describedby="last_nameHelp"
                                                        placeholder="{{ __('Фамилия') }}"
                                                        class="form-control form-control-user
                                                     @error('last_name') is-invalid @enderror" name="last_name"
                                                        value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
 
-                                                @error('name')
+                                                @error('last_name')
                                                 <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

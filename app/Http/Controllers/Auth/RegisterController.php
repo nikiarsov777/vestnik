@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -23,7 +24,6 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
     /**
      * Where to redirect users after registration.
      *
@@ -49,12 +49,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-
         return Validator::make($data,
             [
-                'name' => ['required', 'string', 'max:255'],
-                'school' => ['required', 'numeric', 'gt:0'],
-                'group' => ['required', 'numeric', 'gt:0'],
+                'first_name' => ['required', 'string', 'max:255'],
+                'last_name' => ['required', 'string', 'max:255'],
+                'school' => ['required', 'string', 'max:255'],
+                'school_id' => ['required', 'numeric', 'gt:0'],
+                'class_name' => ['required', 'numeric', 'gt:0'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'min:8', 'confirmed'],
                 'password_confirmation' => ['required', 'min:8'],
@@ -62,6 +63,7 @@ class RegisterController extends Controller
             [
                 'school.gt' => 'Моля, изберете училище!',
                 'school.required' => 'Моля, изберете училище!',
+                'school_id.required' => 'Моля, изберете училище!',
                 'group.gt' => 'Моля, изберете паралелка!',
                 'group.required' => 'Моля, изберете паралелка!',
                 'email.required' => 'Моля, изберете ел. поща!',
@@ -81,11 +83,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd($data);
-        return User::create([
-            'name' => $data['name'],
+        $role = Role::where('name', 'visitor')->firstOrFail();
+
+        $user = User::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'school' => $data['school_id'],
+            'class_name' => $data['class_name'],
+
         ]);
+
+        $user->roles()->attach($role->id);
+        return $user;
     }
 }

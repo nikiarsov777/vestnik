@@ -32,4 +32,4 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->na
 Auth::routes();
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
-Route::get('/tools/schools', [App\Http\Controllers\ToolController::class, 'getSchools']);
+Route::get('/tools/schools/{name}', [App\Http\Controllers\ToolController::class, 'getSchools']);

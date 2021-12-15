@@ -41,7 +41,6 @@ class User extends Authenticatable
         'password',
         'school',
         'class_name',
-        'id_role',
     ];
 
     /**
