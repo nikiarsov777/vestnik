@@ -16,6 +16,7 @@
 
         <!-- inject:css -->
         <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+        <link href="{{ asset('assets/bootstrap.min.css') }}" rel="stylesheet">
         <!-- endinject -->
     </head>
     <body class="antialiased">
@@ -30,23 +31,8 @@
                 </header>
 
                 <!-- partial -->
-                <div class="flash-news-banner">
-                    <div class="container">
-                        <div class="d-lg-flex align-items-center justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <span class="badge badge-dark mr-3">Flash news</span>
-                                <p class="mb-0">
-                                    Lorem Ipsum has been the industry's standard dummy text ever
-                                    since the 1500s.
-                                </p>
-                            </div>
-                            <div class="d-flex">
-                                <span class="mr-3 text-danger">Wed, March 4, 2020</span>
-                                <span class="text-danger">30°C,London</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @include('layouts.partials.flashnews')
+
                 <div class="content-wrapper">
                     <div class="container">
                         <div class="row" data-aos="fade-up">

@@ -20,11 +20,8 @@
                 </button>
                 <div
                     class="navbar-collapse justify-content-center collapse"
-                    id="navbarSupportedContent"
-                >
-                    <ul
-                        class="navbar-nav d-lg-flex justify-content-between align-items-center"
-                    >
+                    id="navbarSupportedContent" >
+                    <ul class="navbar-nav d-lg-flex justify-content-between align-items-center" >
                         <li>
                             <button class="navbar-close">
                                 <i class="mdi mdi-close"></i>

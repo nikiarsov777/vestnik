@@ -11,14 +11,14 @@
 
     <link rel="shortcut icon" href="{{ URL::asset('images/favicon.ico') }}" />
 
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
     <link href="{{ asset('assets/admin/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
     <!-- Fonts -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{ URL::asset('css/nunito.css') }}">
-    <link href="{{ asset('assets/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/bootstrap.min.css') }}" rel="stylesheet">
+
 
     <!-- Styles -->
     <!-- Custom fonts for this template-->
@@ -31,10 +31,11 @@
 
     <link rel="stylesheet" href="{{ URL::asset('assets/main/vendors/aos/dist/aos.css/aos.css') }}" />
 
+    <link href="{{ asset('assets/bootstrap.min.css') }}" rel="stylesheet">
     <!-- End plugin css for this page -->
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+
     <!-- endinject -->
     <script src="{{ asset('js/jquery.min.js') }}" ></script>
     <script src="{{ asset('js/jquery-ui.min.js') }}" ></script>
@@ -55,10 +56,8 @@
                 @include('layouts.partials.navbar')
             </div>
         </header>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @include('layouts.partials.flashnews')
+        @yield('content')
     </div>
 </div>
 <!-- Scripts -->
