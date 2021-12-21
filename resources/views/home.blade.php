@@ -125,19 +125,20 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h2>Category</h2>
-                                        <ul class="vertical-menu">
-                                            <li><a href="#">Politics</a></li>
-                                            <li><a href="#">International</a></li>
-                                            <li><a href="#">Finance</a></li>
-                                            <li><a href="#">Health care</a></li>
-                                            <li><a href="#">Technology</a></li>
-                                            <li><a href="#">Jobs</a></li>
-                                            <li><a href="#">Media</a></li>
-                                            <li><a href="#">Administration</a></li>
-                                            <li><a href="#">Sports</a></li>
-                                            <li><a href="#">Game</a></li>
-                                            <li><a href="#">Art</a></li>
-                                            <li><a href="#">Kids</a></li>
+                                        <ul class="vertical-menu ">
+                                            @foreach ($categories as $category)
+                                                <li><a href="#">{{ $category->name }}</a></li>
+                                            @endforeach
+                                            <li>
+                                                <a href="#" id="btn-1" data-toggle="collapse" data-target="#submenu1" aria-expanded="false">Link 2 (toggle)
+                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                </a>
+                                                <ul class="nav collapse" id="submenu1" role="menu" aria-labelledby="btn-1">
+                                                    <li><a href="#">Link 2.1</a></li>
+                                                    <li><a href="#">Link 2.2</a></li>
+                                                    <li><a href="#">Link 2.3</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
