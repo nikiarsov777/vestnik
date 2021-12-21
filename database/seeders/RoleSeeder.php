@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Role;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class RoleSeeder extends Seeder
 {
@@ -36,7 +35,7 @@ class RoleSeeder extends Seeder
 
         foreach ($items as $item) {
             if (Role::where('name', $item['name'])->exists()) {
-                $role = Role::where('name', $item['name'])->first();
+                $role = Role::where('name', $item['name'])->firstOrFail();
             } else {
                 $role = new Role;
             }

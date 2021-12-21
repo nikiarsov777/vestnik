@@ -16,5 +16,6 @@ class DevSeeder extends Seeder
         $this->call(SchoolTableSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
     }
 }

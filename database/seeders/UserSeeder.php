@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
 
         foreach ($items as $item) {
             if (User::where('email', $item['email'])->exists()) {
-                $user = User::where('email', $item['email'])->first();
+                $user = User::where('email', $item['email'])->firstOrFail();
             } else {
                 $user = new User;
             }
