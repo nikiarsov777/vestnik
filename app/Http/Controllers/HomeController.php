@@ -8,9 +8,16 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $categories = Category::where('parent_id', null)->
-                                orderBy('order')->
+        $categories = Category::orderBy('order')->
                                 orderBy('name')->get();
-        return view('home', ['categories' => $categories]);
+
+        $subCategoriesArr = [];
+
+        foreach ($categories as $category) {
+            if ($category->parent_id != null) {
+                $subCategoriesArr[$category->parent_id][] = $category;
+            }
+        }
+        return view('home', ['categories' => $categories, 'subCategories' => $subCategoriesArr]);
     }
 }

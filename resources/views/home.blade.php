@@ -125,20 +125,25 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h2>Category</h2>
-                                        <ul class="vertical-menu ">
+                                        <ul class="vertical-menu">
                                             @foreach ($categories as $category)
-                                                <li><a href="#">{{ $category->name }}</a></li>
+                                                @if ($category->parent_id == null)
+                                                    <li><a href="#">{{ $category->name }}</a></li>
+                                                    @if (isset($subCategories[$category->id]))
+                                                        <li class='sub-menu'>
+                                                            <a href="#" id="btn-{{$category->id}}" data-toggle="collapse" data-target="#submenu_{{$category->id}}" aria-expanded="false">
+                                                                {{ $category->name }}
+                                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                            </a>
+                                                            <ul class="nav collapse offset-2 " id="submenu_{{$category->id}}" role="menu" aria-labelledby="btn-{{$category->id}}">
+                                                                @foreach ($subCategories[$category->id] as $subCategory)
+                                                                    <li><a href="#">{{$subCategory->name}}</a></li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </li>
+                                                    @endif
+                                                @endif
                                             @endforeach
-                                            <li>
-                                                <a href="#" id="btn-1" data-toggle="collapse" data-target="#submenu1" aria-expanded="false">Link 2 (toggle)
-                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                                </a>
-                                                <ul class="nav collapse" id="submenu1" role="menu" aria-labelledby="btn-1">
-                                                    <li><a href="#">Link 2.1</a></li>
-                                                    <li><a href="#">Link 2.2</a></li>
-                                                    <li><a href="#">Link 2.3</a></li>
-                                                </ul>
-                                            </li>
                                         </ul>
                                     </div>
                                 </div>
