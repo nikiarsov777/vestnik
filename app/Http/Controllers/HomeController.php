@@ -2,22 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Http\Services\CategoryService;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::orderBy('order')->
-                                orderBy('name')->get();
+        $categoryService = new CategoryService();
 
-        $subCategoriesArr = [];
-
-        foreach ($categories as $category) {
-            if ($category->parent_id != null) {
-                $subCategoriesArr[$category->parent_id][] = $category;
-            }
-        }
-        return view('home', ['categories' => $categories, 'subCategories' => $subCategoriesArr]);
+        return view('home', $categoryService->index());
     }
 }

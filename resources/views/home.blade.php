@@ -124,7 +124,7 @@
                             <div class="col-lg-3 stretch-card grid-margin">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h2>Category</h2>
+                                        <h2>{{__('Категории')}}</h2>
                                         <ul class="vertical-menu">
                                             @foreach ($categories as $category)
                                                 @if ($category->parent_id == null)
