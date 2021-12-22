@@ -128,7 +128,6 @@
                                         <ul class="vertical-menu">
                                             @foreach ($categories as $category)
                                                 @if ($category->parent_id == null)
-                                                    <li><a href="#">{{ $category->name }}</a></li>
                                                     @if (isset($subCategories[$category->id]))
                                                         <li class='sub-menu'>
                                                             <a href="#" id="btn-{{$category->id}}" data-toggle="collapse" data-target="#submenu_{{$category->id}}" aria-expanded="false">
@@ -141,6 +140,8 @@
                                                                 @endforeach
                                                             </ul>
                                                         </li>
+                                                    @else
+                                                        <li><a href="#">{{ $category->name }}</a></li>
                                                     @endif
                                                 @endif
                                             @endforeach
