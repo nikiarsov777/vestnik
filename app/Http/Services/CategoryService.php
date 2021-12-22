@@ -9,26 +9,31 @@ use App\Models\Category;
 class CategoryService extends BaseService
 {
 
+    public function __construct()
+    {
+        $this->params = [];
+    }
+
     public function index(): array
     {
 
-        $categories = Category::orderBy('order')->
+        $this->params['categories'] = Category::orderBy('order')->
         orderBy('name')->get();
 
         $subCategoriesArr = [];
 
-        foreach ($categories as $category) {
+        foreach ($this->params['categories'] as $category) {
             if ($category->parent_id != null) {
                 $subCategoriesArr[$category->parent_id][] = $category;
             }
         }
 
-        return ['categories' => $categories, 'subCategories' => $subCategoriesArr];
+        return ['categories' => $this->params['categories'], 'subCategories' => $subCategoriesArr];
     }
 
     public function show(string $name): ?BaseModel
     {
-        return Category::where('slug', $name)->first();
+        return Category::where('slug', $name)->firstOrFail();
     }
 
     public function create(array $params): void

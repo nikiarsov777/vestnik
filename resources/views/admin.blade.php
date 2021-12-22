@@ -9,7 +9,9 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="card">
-                        <div class="card-header">{{ __('Табло') }}</div>
+                        <div class="card-header">
+                            {{ __('Табло') }}@if(isset($title)) :: {{__($title)}} @endif
+                        </div>
 
                         <div class="card-body">
                             @if (session('status'))

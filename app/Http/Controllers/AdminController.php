@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\CategoryService;
+use App\Http\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -10,6 +11,7 @@ class AdminController extends Controller
 {
     private $categories = [];
     private $categoryService = null;
+    private $userService = null;
     /**
      * Create a new controller instance.
      *
@@ -19,6 +21,7 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
         $this->categoryService = new CategoryService();
+        $this->userService = new UserService();
         $this->categories = $this->categoryService->index();
     }
 
@@ -34,7 +37,12 @@ class AdminController extends Controller
 
     public function categories(Request $request)
     {
-        $params = array_merge(['web' => 'layouts.partials.admin.categories'],$this->categories);
+        $params = array_merge(
+            [
+                'web' => 'layouts.partials.admin.categories.index',
+                'title' => __('Категории'),
+            ],
+            $this->categories);
         return view('admin', $params);
     }
 
@@ -44,8 +52,9 @@ class AdminController extends Controller
         $category = $this->categoryService->show($name);
         $params = array_merge(
             [
-                'web' => 'layouts.partials.admin.categories',
-                'category' => $category
+                'web' => 'layouts.partials.admin.categories.show',
+                'category' => $category,
+                'title' => __('Категории'),
             ],
             $this->categories,
         );
@@ -55,7 +64,29 @@ class AdminController extends Controller
 
     public function users(Request $request)
     {
-        $params = array_merge(['web' => 'layouts.partials.admin.users'],$this->categories);
+        $users = $this->userService->index();
+        $params = array_merge(
+            [
+                'web' => 'layouts.partials.admin.users.index',
+                'users' => $users,
+                'title' => __('Потребители'),
+            ],
+            $this->categories,
+        );
+        return view('admin', $params);
+    }
+
+    public function userShow(Request $request, int $id)
+    {
+        $user = $this->userService->show($id);
+        $params = array_merge(
+            [
+                'web' => 'layouts.partials.admin.users.show',
+                'user' => $user,
+                'title' => __('Потребители'),
+            ],
+            $this->categories,
+        );
         return view('admin', $params);
     }
 }

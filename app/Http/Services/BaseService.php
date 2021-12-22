@@ -3,16 +3,19 @@
 namespace App\Http\Services;
 
 use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseService
 {
+    protected $params = [];
+
     public function index(): array
     {
 
         return [];
     }
 
-    public function show(string $name): ?BaseModel
+    public function show(string $name)
     {
         return BaseModel();
     }

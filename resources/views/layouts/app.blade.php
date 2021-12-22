@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{ URL::asset('assets/main/vendors/aos/dist/aos.css/aos.css') }}" />
 
     <link href="{{ asset('assets/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('css/items.css') }}">
     <!-- End plugin css for this page -->
 
     <!-- inject:css -->
