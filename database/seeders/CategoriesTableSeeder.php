@@ -18,47 +18,57 @@ class CategoriesTableSeeder extends Seeder
             [
                 'name' => 'Литература',
                 'order' => 1,
+                'slug' => 'literature',
             ],
             [
                 'name' => 'Поезия',
                 'order' => 1,
                 'parent_id' => 'Литература',
+                'slug' => 'poetry',
             ],
             [
                 'name' => 'Проза',
                 'order' => 2,
                 'parent_id' => 'Литература',
+                'slug' => 'prose',
             ],
             [
                 'name' => 'Математика',
                 'order' => 3,
+                'slug' => 'maths',
             ],
             [
                 'name' => 'Физика',
                 'order' => 4,
+                'slug' => 'physics',
             ],
             [
                 'name' => 'Астрономия',
                 'order' => 1,
                 'parent_id' => 'Физика',
+                'slug' => 'astronomy',
             ],
             [
                 'name' => 'Химия',
                 'order' => 6,
+                'slug' => 'chemistry',
             ],
             [
                 'name' => 'Музика',
                 'order' => 7,
+                'slug' => 'music',
             ],
             [
                 'name' => 'Рок',
                 'order' => 1,
                 'parent_id' => 'Музика',
+                'slug' => 'rock',
             ],
             [
                 'name' => 'Класика',
                 'order' => 2,
                 'parent_id' => 'Музика',
+                'slug' => 'classic',
             ],
 
         ];

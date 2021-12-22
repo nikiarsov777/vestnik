@@ -31,6 +31,9 @@ Auth::routes();
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 Auth::routes();
-
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+Route::get('/admin/categories/{name}', [App\Http\Controllers\AdminController::class, 'categoryShow']);
+Route::get('/admin/categories', [App\Http\Controllers\AdminController::class, 'categories']);
+Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'users']);
+
 Route::get('/tools/schools/{name}', [App\Http\Controllers\ToolController::class, 'getSchools']);

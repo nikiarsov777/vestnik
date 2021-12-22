@@ -26,9 +26,9 @@ class CategoryService extends BaseService
         return ['categories' => $categories, 'subCategories' => $subCategoriesArr];
     }
 
-    public function show(string $what): BaseModel
+    public function show(string $name): ?BaseModel
     {
-        return BaseModel();
+        return Category::where('slug', $name)->first();
     }
 
     public function create(array $params): void
@@ -36,7 +36,7 @@ class CategoryService extends BaseService
 
     }
 
-    public function update(array $params): BaseModel
+    public function update(array $params): ?BaseModel
     {
 
     }

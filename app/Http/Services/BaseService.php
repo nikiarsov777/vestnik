@@ -12,7 +12,7 @@ abstract class BaseService
         return [];
     }
 
-    public function show(string $what): BaseModel
+    public function show(string $name): ?BaseModel
     {
         return BaseModel();
     }
@@ -22,7 +22,7 @@ abstract class BaseService
 
     }
 
-    public function update(array $params): BaseModel
+    public function update(array $params): ?BaseModel
     {
         return BaseModel();
     }
