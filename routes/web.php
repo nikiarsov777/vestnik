@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+Route::get('/admin', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
 
-Route::get('/admin/categories/{name}', [App\Http\Controllers\CategoryController::class, 'show']);
-Route::get('/admin/categories', [App\Http\Controllers\CategoryController::class, 'index']);
-Route::get('/admin/users/{id}', [App\Http\Controllers\UserController::class, 'show']);
-Route::get('/admin/users', [App\Http\Controllers\UserController::class, 'index']);
+Route::get('/admin/categories/{name}', [\App\Http\Controllers\Admin\CategoryController::class, 'show']);
+Route::get('/admin/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'index']);
+Route::get('/admin/users/{id}', [\App\Http\Controllers\Admin\UserController::class, 'show']);
+Route::get('/admin/users', [\App\Http\Controllers\Admin\UserController::class, 'index']);
 
 Route::get('/tools/schools/{name}', [App\Http\Controllers\ToolController::class, 'getSchools']);
