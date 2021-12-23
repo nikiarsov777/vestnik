@@ -21,9 +21,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Auth::routes();
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
-Route::get('/admin/categories/{name}', [App\Http\Controllers\AdminController::class, 'categoryShow']);
-Route::get('/admin/categories', [App\Http\Controllers\AdminController::class, 'categories']);
-Route::get('/admin/users/{id}', [App\Http\Controllers\AdminController::class, 'userShow']);
-Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'users']);
+Route::get('/admin/categories/{name}', [App\Http\Controllers\CategoryController::class, 'show']);
+Route::get('/admin/categories', [App\Http\Controllers\CategoryController::class, 'index']);
+Route::get('/admin/users/{id}', [App\Http\Controllers\UserController::class, 'show']);
+Route::get('/admin/users', [App\Http\Controllers\UserController::class, 'index']);
 
 Route::get('/tools/schools/{name}', [App\Http\Controllers\ToolController::class, 'getSchools']);
