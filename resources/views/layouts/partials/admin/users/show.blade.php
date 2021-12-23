@@ -2,7 +2,7 @@
     <div class="col-lg-11">
         <div class="p-5">
             <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">{{ __('Регистрация') }}</h1>
+                <h1 class="h4 text-gray-900 mb-4">{{ __('Потребител') }}</h1>
             </div>
             <form class="user" method="POST" action="{{ route('register') }}">
             @csrf
@@ -13,7 +13,7 @@
                         <label class=" leb-lg-12" for="school">{{ __('Училище:') }}</label>
                     </div>
                     <div class="col-lg-8">
-                        <input id="school" name="school" class="form-control form-control-user">
+                        <input id="school" name="school" class="form-control form-control-user" value="{{$user->school}}">
                         <input id="school_id" name="school_id" type="hidden">
                         @error('school')
                         <span class="invalid-feedback" role="alert">
@@ -33,14 +33,9 @@
                     <div class="col-lg-8">
                         <select id="class_name" class="form-control form-control-user "  name="class_name">
                             <option value="0">{{ __('Избери паралелка') }}</option>
-                            <option value="1">А</option>
-                            <option value="2">Б</option>
-                            <option value="3">В</option>
-                            <option value="4">Г</option>
-                            <option value="5">Д</option>
-                            <option value="6">Е</option>
-                            <option value="7">Ж</option>
-                            <option value="8">З</option>
+                            @foreach($classNames as $k => $name)
+                                <option value="{{$k + 1}}" @if($k+1 == $user->class_name) selected @endif>{{$name}}</option>
+                            @endforeach
                         </select>
                         @error('class_name')
                         <span class="invalid-feedback" role="alert">
@@ -120,7 +115,7 @@
                         <input type="email" class="form-control form-control-user"
                                id="email" aria-describedby="emailHelp"
                                placeholder="{{ __('E-Mail') }}"
-                               class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                               class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email" autofocus>
 
                         @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -140,7 +135,7 @@
                                placeholder="{{ __('Име') }}"
                                class="form-control form-control-user
                                                 @error('first_name') is-invalid @enderror" name="first_name"
-                               value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                               value="{{ $user->first_name}}" required autocomplete="first_name" autofocus>
 
                         @error('first_name')
                         <span class="invalid-feedback" role="alert">
@@ -160,7 +155,7 @@
                                placeholder="{{ __('Фамилия') }}"
                                class="form-control form-control-user
                                             @error('last_name') is-invalid @enderror" name="last_name"
-                               value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+                               value="{{ $user->last_name }}" required autocomplete="last_name" autofocus>
 
                         @error('last_name')
                         <span class="invalid-feedback" role="alert">
@@ -209,11 +204,19 @@
 
                     </div>
                 </div>
-
-                <button type="submit" class="btn btn-primary btn-user btn-block">
-                    {{ __('Запази') }}
-                </button>
-                <hr>
+                <div class="h4 row">
+                    <div class="col-lg-4">
+                        <button type="reset" class="btn btn-danger btn-user btn-block">
+                            {{ __('Откажи') }}
+                        </button>
+                    </div>
+                    <div class="col-lg-8">
+                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                            {{ __('Запази') }}
+                        </button>
+                    </div>
+                    <hr>
+                </div>
             </form>
 
         </div>

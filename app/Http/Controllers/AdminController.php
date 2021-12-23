@@ -69,6 +69,7 @@ class AdminController extends Controller
             [
                 'web' => 'layouts.partials.admin.users.index',
                 'users' => $users,
+                'classNames' => $this->classNames,
                 'title' => __('Потребители'),
             ],
             $this->categories,
@@ -83,6 +84,7 @@ class AdminController extends Controller
             [
                 'web' => 'layouts.partials.admin.users.show',
                 'user' => $user,
+                'classNames' => $this->classNames,
                 'title' => __('Потребители'),
             ],
             $this->categories,

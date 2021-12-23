@@ -70,14 +70,9 @@
                                             <div class="col-lg-8">
                                                 <select id="class_name" class="form-control form-control-user "  name="class_name">
                                                     <option value="0">{{ __('Избери паралелка') }}</option>
-                                                    <option value="1">А</option>
-                                                    <option value="2">Б</option>
-                                                    <option value="3">В</option>
-                                                    <option value="4">Г</option>
-                                                    <option value="5">Д</option>
-                                                    <option value="6">Е</option>
-                                                    <option value="7">Ж</option>
-                                                    <option value="8">З</option>
+                                                    @foreach($classNames as $к => $name)
+                                                        <option value="{{$к + 1}}">{{$name}}</option>
+                                                    @endforeach
                                                 </select>
                                                 @error('class_name')
                                                 <span class="invalid-feedback" role="alert">
