@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\CategoryService;
+use App\Http\Services\ToolService;
 use App\Http\Services\UserService;
 use Illuminate\Http\Request;
 use function view;
@@ -11,8 +12,10 @@ use function view;
 class AdminController extends Controller
 {
     protected $categories = [];
+    protected $schools = [];
     protected $categoryService = null;
     protected $userService = null;
+    protected $toolService = null;
     /**
      * Create a new controller instance.
      *
@@ -23,7 +26,9 @@ class AdminController extends Controller
         $this->middleware('auth');
         $this->categoryService = new CategoryService();
         $this->userService = new UserService();
+        $this->toolService = new ToolService();
         $this->categories = $this->categoryService->index();
+        $this->schools = $this->toolService->getSchools();
     }
 
     /**

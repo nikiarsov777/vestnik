@@ -13,8 +13,17 @@
                         <label class=" leb-lg-12" for="school">{{ __('Училище:') }}</label>
                     </div>
                     <div class="col-lg-8">
-                        <input id="school" name="school" class="form-control form-control-user" value="{{$user->school}}">
-                        <input id="school_id" name="school_id" type="hidden">
+                        @if($user->school != null)
+                            @foreach($schools as $school)
+                                @if($school['id'] == $user->school)
+                                    <input id="school" name="school" class="form-control form-control-user" value="{{$school['name']}}">
+                                    <input id="school_id" name="school_id" type="hidden" value="{{$user->school}}">
+                                @endif
+                            @endforeach
+                        @else
+                            <input id="school" name="school" class="form-control form-control-user" value="">
+                            <input id="school_id" name="school_id" type="hidden">
+                        @endif
                         @error('school')
                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

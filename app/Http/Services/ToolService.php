@@ -6,7 +6,7 @@ use App\Models\School;
 
 class ToolService extends BaseService
 {
-    public function getSchools(string $name): array
+    public function getSchools(string $name = ''): array
     {
         $schoolArr = [];
         $school = new School();

@@ -8,7 +8,6 @@ use function view;
 class UserController extends AdminController
 {
 
-
     public function index(Request $request)
     {
         $users = $this->userService->index();
@@ -33,9 +32,14 @@ class UserController extends AdminController
                 'user' => $user,
                 'classNames' => $this->classNames,
                 'title' => __('Потребители'),
+                'schools' => $this->schools,
+                'schoolName' => '',
+                'schoolId' => '',
+
             ],
             $this->categories,
         );
+
         return view('admin', $params);
     }
 }
