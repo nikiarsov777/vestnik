@@ -127,3 +127,10 @@ function toggleClick(idName) {
         // change button text
     }
 }
+
+$("document").ready(function(){
+    setTimeout(function(){
+        $("span.alert-success").remove();
+    }, 5000 ); // 5 secs
+
+});

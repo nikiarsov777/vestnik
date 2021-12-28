@@ -4,7 +4,7 @@
             <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">{{ __('Потребител') }}</h1>
             </div>
-            <form class="user" method="POST" action="{{ route('register') }}">
+            <form class="user" method="POST" action="{{ route('users.update', request()->route('id')) }}">
             @csrf
 
             <!--Schools-->
@@ -48,8 +48,8 @@
                         </select>
                         @error('class_name')
                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </div>
 
@@ -164,7 +164,7 @@
                                placeholder="{{ __('Фамилия') }}"
                                class="form-control form-control-user
                                             @error('last_name') is-invalid @enderror" name="last_name"
-                               value="{{ $user->last_name }}" required autocomplete="last_name" autofocus>
+                               value="{{ $user->last_name }}" autocomplete="last_name" autofocus>
 
                         @error('last_name')
                         <span class="invalid-feedback" role="alert">
@@ -184,7 +184,7 @@
                                placeholder="{{ __('Парола') }}"
                                class="form-control form-control-user
                                                @error('password') is-invalid @enderror" name="password"
-                               value="{{ old('password') }}" required autocomplete="new-password" autofocus>
+                               value="{{ old('password') }}" autocomplete="new-password" autofocus>
 
                         @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -204,7 +204,7 @@
                                placeholder="{{ __('Повтори паролата') }}"
                                class="form-control form-control-user
                                                @error('password_confirmation') is-invalid @enderror" name="password_confirmation"
-                               value="{{ old('password') }}" required autocomplete="new-password" autofocus>
+                               value="{{ old('password') }}" autocomplete="new-password" autofocus>
                         @error('password_confirmation')
                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

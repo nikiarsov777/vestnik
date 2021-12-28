@@ -23,7 +23,9 @@ Route::get('/admin', [\App\Http\Controllers\Admin\AdminController::class, 'index
 
 Route::get('/admin/categories/{name}', [\App\Http\Controllers\Admin\CategoryController::class, 'show']);
 Route::get('/admin/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'index']);
-Route::get('/admin/users/{id}', [\App\Http\Controllers\Admin\UserController::class, 'show']);
-Route::get('/admin/users', [\App\Http\Controllers\Admin\UserController::class, 'index']);
+Route::get('/admin/users/{id}', [\App\Http\Controllers\Admin\UserController::class, 'show'])->name('users.show');
+Route::get('/admin/users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('users');
+Route::post('/admin/users', [\App\Http\Controllers\Admin\UserController::class, 'create'])->name('users.create');
+Route::post('/admin/users/{id}', [\App\Http\Controllers\Admin\UserController::class, 'update'])->name('users.update');
 
 Route::get('/tools/schools/{name}', [App\Http\Controllers\ToolController::class, 'getSchools']);

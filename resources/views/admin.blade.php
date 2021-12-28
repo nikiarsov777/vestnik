@@ -12,6 +12,11 @@
                         <div class="card-header">
                             {{ __('Табло') }}@if(isset($title)) :: {{__($title)}} @endif
                         </div>
+                        @if(session()->has('message'))
+                            <span class="alert alert-success" role="alert">
+                                <strong>{{ session()->get('message') }}</strong>
+                            </span>
+                        @endif
 
                         <div class="card-body">
                             @if (session('status'))
