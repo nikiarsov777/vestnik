@@ -63,6 +63,10 @@ class User extends Authenticatable
         'school_verified_at' => 'datetime',
     ];
 
+    protected $with = [
+        'roles'
+    ];
+
     public function roles()
     {
         return $this->belongsToMany(Role::class);

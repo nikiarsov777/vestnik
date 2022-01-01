@@ -26,5 +26,4 @@ class ToolService extends BaseService
 //        return $school->get()->pluck('name')->toArray();
         return $schoolArr;
     }
-
 }

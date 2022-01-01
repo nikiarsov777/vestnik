@@ -215,6 +215,20 @@
                 </div>
                 <div class="h4 row">
                     <div class="col-lg-4">
+                        <label class=" leb-lg-12" for="password-confirm">{{ __('Роля:') }}</label>
+                    </div>
+                    <div class="col-lg-8">
+                        @foreach($roles as $role)
+                            @foreach($user->roles as $userRole)
+                                @if($role->name == $userRole->name)
+                                    <span>{{$role->name}}</span>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </div>
+                </div>
+                <div class="h4 row">
+                    <div class="col-lg-4">
                         <button type="reset" class="btn btn-danger btn-user btn-block">
                             {{ __('Откажи') }}
                         </button>

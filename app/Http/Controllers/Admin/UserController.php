@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
-use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use function view;
 
 class UserController extends AdminController
 {
+
 
     public function index(Request $request)
     {
@@ -38,6 +38,7 @@ class UserController extends AdminController
                 'schools' => $this->schools,
                 'schoolName' => '',
                 'schoolId' => '',
+                'roles' => $this->roles,
 
             ],
             $this->categories,

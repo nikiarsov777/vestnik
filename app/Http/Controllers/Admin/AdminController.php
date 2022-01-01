@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\CategoryService;
 use App\Http\Services\ToolService;
 use App\Http\Services\UserService;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use function view;
 
@@ -16,6 +17,7 @@ class AdminController extends Controller
     protected $categoryService = null;
     protected $userService = null;
     protected $toolService = null;
+    protected $roles = null;
     /**
      * Create a new controller instance.
      *
@@ -29,6 +31,8 @@ class AdminController extends Controller
         $this->toolService = new ToolService();
         $this->categories = $this->categoryService->index();
         $this->schools = $this->toolService->getSchools();
+
+        $this->roles = Role::all();
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
         ];
 
         foreach ($items as $item) {
+            $role = null;
             if (User::where('email', $item['email'])->exists()) {
                 $user = User::where('email', $item['email'])->firstOrFail();
             } else {
@@ -37,9 +39,17 @@ class UserSeeder extends Seeder
             }
 
             foreach ($item as $key => $val) {
-                $user->{$key} = $val;
+                if($key == 'id_role') {
+                    $role = Role::findOrFail($val);
+                } else {
+                    $user->{$key} = $val;
+                }
             }
             $user->save();
+            $user->roles()->detach();
+            if ($role) {
+                $user->roles()->attach($role->id);
+            }
         }
     }
 }
