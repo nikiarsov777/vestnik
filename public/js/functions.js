@@ -61,10 +61,26 @@ $(function(){
 
 
     $(document).ready(function () {
-
         var getData = function (request, response) {
             $.getJSON(
                 "http://vestnik.test/tools/schools/" + request.term,
+                function (data, err) {
+                    if (err !== 'success') {
+                        alert('Something went wrong: ' + err);
+                    }
+
+                    response($.map(data, function (item) {
+                        return {
+                            label: item['name'],
+                            value: item['id']
+                        }
+                    }));
+                });
+        };
+
+        var getDataRoles = function (request, response) {
+            $.getJSON(
+                "http://vestnik.test/tools/roles/" + request.term,
                 function (data, err) {
                     if (err !== 'success') {
                         alert('Something went wrong: ' + err);
@@ -85,10 +101,23 @@ $(function(){
             return false;
         }
 
+        var selectRole = function (event, ui) {
+            var str = '<input id="role_id" name="role_id[]" class="std-input" type="hidden" value="' + ui.item.value + '">';
+            $(".roles").append('<span class="label label-success">' + ui.item.label + '</span> ');
+            $(".role_ids").append(str);
+            $("#msdb-a").val('');
+            return false;
+        }
+
         $("#school").autocomplete({
             source: getData,
             select: selectItem,
             minLength: 2
+        });
+        $("#msdb-a").autocomplete({
+            source: getDataRoles,
+            select: selectRole,
+            multiselect: false
         });
         // $('#school').selectinput({
         //     toggleText: 'Type option',

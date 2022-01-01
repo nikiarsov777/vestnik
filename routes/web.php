@@ -29,3 +29,4 @@ Route::post('/admin/users', [\App\Http\Controllers\Admin\UserController::class, 
 Route::post('/admin/users/{id}', [\App\Http\Controllers\Admin\UserController::class, 'update'])->name('users.update');
 
 Route::get('/tools/schools/{name}', [App\Http\Controllers\ToolController::class, 'getSchools']);
+Route::get('/tools/roles/{name}', [App\Http\Controllers\ToolController::class, 'getRoles']);
