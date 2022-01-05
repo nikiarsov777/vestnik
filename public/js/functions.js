@@ -87,6 +87,15 @@ $(function(){
                     }
 
                     response($.map(data, function (item) {
+                        var isPresent = false;
+                        $('.role-id').each(function(i,data){
+                            if($(this).val()== item['id'])
+                                isPresent = true;
+                        });
+
+                        if (isPresent) {
+                            return;
+                        }
                         return {
                             label: item['name'],
                             value: item['id']
@@ -102,7 +111,7 @@ $(function(){
         }
 
         var selectRole = function (event, ui) {
-            var str = '<input id="role_id" name="role_id[]" class="std-input" type="hidden" value="' + ui.item.value + '">';
+            var str = '<input id="role_id" name="role_id[]" class="std-input role-id" type="hidden" value="' + ui.item.value + '">';
             $(".roles").append('<span class="label label-success">' + ui.item.label + '</span> ');
             $(".role_ids").append(str);
             $("#msdb-a").val('');

@@ -213,23 +213,30 @@
 
                     </div>
                 </div>
+                @php
+                $roleStr = '';
+                $roleIds = '';
+                @endphp
+                @foreach($roles as $role)
+                    @foreach($user->roles as $userRole)
+                        @if($role->name == $userRole->name)
+                            @php
+                            $roleStr .= '<span class="label label-success">' . $role->name . '</span> ';
+                            $roleIds .= '<input id="role_id" name="role_id[]" class="std-input role-id" type="hidden" value="' . $role->id . '">';
+                            @endphp
+                        @endif
+                    @endforeach
+                @endforeach
                 <div class="h4 row">
                     <div class="col-lg-4">
                         <label class=" leb-lg-12" for="password-confirm">{{ __('Роля:') }}</label>
                     </div>
                     <div class="col-lg-8">
-                        <div class="roles"></div>
-                        <div class="role_ids"></div>
+                        <div class="roles">{!! $roleStr !!}</div>
+                        <div class="role_ids">{!! $roleIds  !!}</div>
 
                         <input id="msdb-a" class="form-control form-control-user" type="text">
 
-                        @foreach($roles as $role)
-                            @foreach($user->roles as $userRole)
-                                @if($role->name == $userRole->name)
-                                    <span>{{$role->name}}</span>
-                                @endif
-                            @endforeach
-                        @endforeach
                     </div>
                 </div>
                 <div class="h4 row">
