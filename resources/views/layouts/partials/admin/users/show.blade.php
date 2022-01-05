@@ -222,7 +222,7 @@
                         @if($role->name == $userRole->name)
                             @php
                             $roleStr .= '<span class="label label-success">' . $role->name . '</span> ';
-                            $roleIds .= '<input id="role_id" name="role_id[]" class="std-input role-id" type="hidden" value="' . $role->id . '">';
+                            $roleIds .= '<input id="role_ids" name="role_ids[]" class="std-input role-id" type="hidden" value="' . $role->id . '">';
                             @endphp
                         @endif
                     @endforeach
@@ -233,7 +233,7 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="roles">{!! $roleStr !!}</div>
-                        <div class="role_ids">{!! $roleIds  !!}</div>
+                        <div class="role-ids">{!! $roleIds  !!}</div>
 
                         <input id="msdb-a" class="form-control form-control-user" type="text">
 

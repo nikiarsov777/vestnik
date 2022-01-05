@@ -111,9 +111,9 @@ $(function(){
         }
 
         var selectRole = function (event, ui) {
-            var str = '<input id="role_id" name="role_id[]" class="std-input role-id" type="hidden" value="' + ui.item.value + '">';
+            var str = '<input id="role_ids" name="role_ids[]" class="std-input role-id" type="hidden" value="' + ui.item.value + '">';
             $(".roles").append('<span class="label label-success">' + ui.item.label + '</span> ');
-            $(".role_ids").append(str);
+            $(".role-ids").append(str);
             $("#msdb-a").val('');
             return false;
         }

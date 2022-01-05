@@ -64,11 +64,17 @@ class User extends Authenticatable
     ];
 
     protected $with = [
-        'roles'
+        'roles',
+        'schools'
     ];
 
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function schools()
+    {
+        return $this->belongsToMany(School::class)->where('school_user.active', 1);
     }
 }

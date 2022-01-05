@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Role;
+use App\Models\School;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -96,6 +97,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $role = Role::where('name', 'visitor')->firstOrFail();
+        $school = School::findOrFail($data['school_id']);
 
         $user = User::create([
             'first_name' => $data['first_name'],
@@ -108,6 +110,7 @@ class RegisterController extends Controller
         ]);
 
         $user->roles()->attach($role->id);
+        $user->schools()->attach($school->id);
         return $user;
     }
 }
