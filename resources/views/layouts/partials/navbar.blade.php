@@ -4,7 +4,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <div>
                 <a class="navbar-brand" href="/"
-                ><img src="assets/main/images/logo.svg" alt=""
+                ><img src="/assets/main/images/logo.svg" alt=""
                     /></a>
             </div>
             <div>
@@ -19,7 +19,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div
-                    class="navbar-collapse justify-content-center collapse"
+                    class="navbar-collapse justify-content-center collapse-menu"
                     id="navbarSupportedContent" >
                     <ul class="navbar-nav d-lg-flex justify-content-between align-items-center" >
                         <li>

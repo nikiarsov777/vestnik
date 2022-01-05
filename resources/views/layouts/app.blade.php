@@ -64,6 +64,6 @@
 <!-- Scripts -->
 
 
-
+<script src="{{ URL::asset('assets/admin/js/menu.js') }}"></script>
 </body>
 </html>

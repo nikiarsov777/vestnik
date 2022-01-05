@@ -222,7 +222,7 @@
                         <div class="role_ids"></div>
 
                         <input id="msdb-a" class="form-control form-control-user" type="text">
-                        
+
                         @foreach($roles as $role)
                             @foreach($user->roles as $userRole)
                                 @if($role->name == $userRole->name)

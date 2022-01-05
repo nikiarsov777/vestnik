@@ -10405,10 +10405,16 @@ header .navbar-bottom .navbar-toggler {
   .navbar-nav .nav-item {
     padding-left: 0px;
   }
+
   .collapse {
     background: #032a63;
     z-index: 99;
   }
+  .collapse-menu {
+    background: #032a63;
+    z-index: 99;
+  }
+
   .navbar-collapse {
     position: fixed;
     right: -100%;
