@@ -97,8 +97,8 @@ class UserController extends AdminController
         if($request->has('school_id') && $request->has('class_name')) {
             $schoolId = $request->get('school_id');
             $className = $request->get('class_name');
-            $schoolUser = SchoolUser::where('id', $schoolId)->where('class_name', $className)->first();
-            if($schoolUser) {
+            $schoolUsers = SchoolUser::where('user_id', $user->id)->where('active', 1)->get();
+            foreach($schoolUsers as $schoolUser) {
                 $schoolUser->active = 0;
                 $schoolUser->save();
             }
