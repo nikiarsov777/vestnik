@@ -31,7 +31,7 @@
                         @enderror
                     </div>
                 </div>
-                <!--/Schools-->
+            <!--/Schools-->
             {{--                                        <div class="form-group col-lg-12"> </div>--}}
 
             <!--Classes-->
@@ -40,7 +40,7 @@
                         <label class=" leb-lg-12" for="class_name">{{ __('Паралелка:') }}</label>
                     </div>
                     <div class="col-lg-8">
-                        <select id="class_name" class="form-control form-control-user "  name="class_name">
+                        <select id="class_name" class="form-control form-control-user"  name="class_name">
                             <option value="0">{{ __('Избери паралелка') }}</option>
                             @foreach($classNames as $k => $name)
                                 <option value="{{$k + 1}}" @if($k+1 == $user->class_name) selected @endif>{{$name}}</option>
@@ -54,7 +54,7 @@
                     </div>
 
                 </div>
-                <!--/Classes-->
+            <!--/Classes-->
 
                 <?php
                 /*
@@ -121,7 +121,7 @@
                         <label class=" leb-lg-12" for="email">{{ __('Ел. поща:') }}</label>
                     </div>
                     <div class="col-lg-8">
-                        <input type="email" class="form-control form-control-user"
+                        <input type="email"
                                id="email" aria-describedby="emailHelp"
                                placeholder="{{ __('E-Mail') }}"
                                class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email" autofocus>
@@ -139,7 +139,7 @@
                         <label class=" leb-lg-12" for="first_name">{{ __('Име:') }}</label>
                     </div>
                     <div class="col-lg-8">
-                        <input type="name" class="form-control form-control-user"
+                        <input type="name"
                                id="first_name" aria-describedby="nameHelp"
                                placeholder="{{ __('Име') }}"
                                class="form-control form-control-user
@@ -159,7 +159,7 @@
                         <label class=" leb-lg-12" for="last_name">{{ __('Фамилия:') }}</label>
                     </div>
                     <div class="col-lg-8">
-                        <input type="name" class="form-control form-control-user"
+                        <input type="name"
                                id="last_name" aria-describedby="last_nameHelp"
                                placeholder="{{ __('Фамилия') }}"
                                class="form-control form-control-user
@@ -179,7 +179,7 @@
                         <label class=" leb-lg-12" for="password">{{ __('Парола:') }}</label>
                     </div>
                     <div class="col-lg-8">
-                        <input type="password" class="form-control form-control-user"
+                        <input type="password"
                                id="password" aria-describedby="passwordHelp"
                                placeholder="{{ __('Парола') }}"
                                class="form-control form-control-user
@@ -199,7 +199,7 @@
                         <label class=" leb-lg-12" for="password-confirm">{{ __('Повтори паролата:') }}</label>
                     </div>
                     <div class="col-lg-8">
-                        <input type="password" class="form-control form-control-user"
+                        <input type="password"
                                id="password-confirm" aria-describedby="password-confirmHelp"
                                placeholder="{{ __('Повтори паролата') }}"
                                class="form-control form-control-user
@@ -239,6 +239,21 @@
 
                     </div>
                 </div>
+
+                <div class="h4 row">
+                    <div class="col-lg-4 ">
+                        <label class=" leb-lg-12" for="is_active">{{ __('Активен:') }}</label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="checkbox" class="form-control-sm form-check-input"
+                               id="is_active" aria-describedby="is_activeHelp"
+                               placeholder="{{ __('E-Mail') }}"
+                              @if($user->is_active) checked @endif
+                               name="is_active" autofocus value="1">
+
+                    </div>
+                </div>
+
                 <div class="h4 row">
                     <div class="col-lg-4">
                         <button type="reset" class="btn btn-danger btn-user btn-block">

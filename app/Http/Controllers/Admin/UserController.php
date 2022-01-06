@@ -80,6 +80,12 @@ class UserController extends AdminController
             $user->password = $request->get('password');
         }
 
+        if($request->has('is_active') ) {
+            $user->is_active = 1;
+        } else {
+            $user->is_active = 0;
+        }
+
         $user->save();
 
         if($request->has('role_ids')) {
@@ -130,7 +136,8 @@ class UserController extends AdminController
                 'email' => ['required', 'string', 'email', 'max:255'],
                 'password' => ['nullable', 'min:8', 'confirmed'],
                 'password_confirmation' => ['required_with:password', 'nullable', 'min:8'],
-                'role_ids' => ['required', 'array']
+                'role_ids' => ['required', 'array'],
+                'is_active' => ['nullable', 'integer'],
             ],
             [
                 'school.gt' => 'Моля, изберете училище!',
