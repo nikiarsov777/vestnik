@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\SchoolUser;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use function view;
@@ -15,7 +16,11 @@ class UserController extends AdminController
 
     public function index(Request $request)
     {
-        $users = $this->userService->index();
+        if (Auth::user()->isAdmin()) {
+            $users = $this->userService->index();
+        } else if(Auth::user()->isPrincipal()) {
+            $users = $this->userService->indexPrincipal(Auth::user()->school);
+        }
         $params = array_merge(
             [
                 'web' => 'layouts.partials.admin.users.index',
@@ -133,7 +138,7 @@ class UserController extends AdminController
                 'school' => ['required_if:role_ids,1','nullable', 'max:255'],
                 'school_id' => ['required_with:school', 'nullable'],
                 'class_name' => ['required_with:school', 'nullable'],
-                'email' => ['required', 'string', 'email', 'max:255'],
+                'email' => ['nullable', 'string', 'email', 'max:255'],
                 'password' => ['nullable', 'min:8', 'confirmed'],
                 'password_confirmation' => ['required_with:password', 'nullable', 'min:8'],
                 'role_ids' => ['required', 'array'],
@@ -146,7 +151,6 @@ class UserController extends AdminController
                 'class_name.required_with' => 'Моля, изберете паралелка!',
                 'group.gt' => 'Моля, изберете паралелка!',
                 'group.required' => 'Моля, изберете паралелка!',
-                'email.required' => 'Моля, изберете ел. поща!',
                 'email.unique' => 'Тази поща вече е заета!',
                 'password.required' => 'Моля, въведете парола!',
                 'password.confirmed' => 'Паролите не съвпадат!',

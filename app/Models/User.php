@@ -77,4 +77,19 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(School::class)->where('school_user.active', 1);
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->roles()->where('name', 'admin')->exists();
+    }
+
+    public function isPrincipal(): bool
+    {
+        return $this->roles()->where('name', 'principal')->exists();
+    }
+
+    public function isGrant(): bool
+    {
+        return $this->roles()->whereIn('name', ['admin', 'principal'])->exists();
+    }
 }

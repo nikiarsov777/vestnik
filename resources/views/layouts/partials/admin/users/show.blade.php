@@ -121,6 +121,7 @@
                         <label class=" leb-lg-12" for="email">{{ __('Ел. поща:') }}</label>
                     </div>
                     <div class="col-lg-8">
+                        @if(Auth::user()->isAdmin() && Auth::user()->id != $user->id)
                         <input type="email"
                                id="email" aria-describedby="emailHelp"
                                placeholder="{{ __('E-Mail') }}"
@@ -131,6 +132,13 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                         @enderror
+                        @else
+                            <span
+                                class="col-form-label-sm">
+                                {{ $user->email }}
+                            </span>
+
+                        @endif
                     </div>
                 </div>
 
@@ -240,6 +248,7 @@
                     </div>
                 </div>
 
+                @if(Auth::user()->isGrant() && Auth::user()->id != $user->id)
                 <div class="h4 row">
                     <div class="col-lg-4 ">
                         <label class=" leb-lg-12" for="is_active">{{ __('Активен:') }}</label>
@@ -247,12 +256,12 @@
                     <div class="col-lg-8">
                         <input type="checkbox" class="form-control-sm form-check-input"
                                id="is_active" aria-describedby="is_activeHelp"
-                               placeholder="{{ __('E-Mail') }}"
                               @if($user->is_active) checked @endif
                                name="is_active" autofocus value="1">
 
                     </div>
                 </div>
+                @endif
 
                 <div class="h4 row">
                     <div class="col-lg-4">

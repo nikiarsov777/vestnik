@@ -11,6 +11,7 @@ $num = 1;
             <th scope="col">{{__('Име')}}</th>
             <th scope="col">{{__('Майл')}}</th>
             <th scope="col">{{__('Роля')}}</th>
+            <th scope="col">{{__('Активен')}}</th>
         </tr>
         </thead>
 
@@ -37,6 +38,13 @@ $num = 1;
                 @foreach($user->roles as $role)
                     <span>{{$role->name}}</span>
                 @endforeach
+                </a>
+            </td>
+            <td>
+                <a href="/admin/users/{{$user->id}}">
+                    @if($user->is_active)
+                        <span class="glyphicon glyphicon-ok"></span>
+                    @endif
                 </a>
             </td>
         </tr>

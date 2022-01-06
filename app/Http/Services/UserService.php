@@ -38,11 +38,27 @@ class UserService extends BaseService
 
     public function update(array $params): ?BaseModel
     {
-
+        return BaseModel();
     }
 
     public function delete(array $params): void
     {
 
+    }
+
+    public function indexPrincipal(int $principalId): array
+    {
+
+        $this->params['users'] = User::with('schools')
+            ->whereHas('schools', function($q) use($principalId) {
+                $q->where('school_id', $principalId);
+            })
+            ->orderBy('first_name')
+            ->orderBy('last_name')
+            ->orderBy('email')
+            ->get();
+
+
+        return $this->params;
     }
 }
