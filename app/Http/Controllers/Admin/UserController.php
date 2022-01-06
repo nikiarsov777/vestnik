@@ -64,7 +64,7 @@ class UserController extends AdminController
     public function update(Request $request, int $id)
     {
         $this->userService->setUser(Auth::user());
-        
+
         $validator = $this->validator($request->all());
         $user = User::findOrFail($id);
         if($validator->fails()) {
@@ -92,7 +92,9 @@ class UserController extends AdminController
         if($request->has('is_active') ) {
             $user->is_active = 1;
         } else {
-            $user->is_active = 0;
+            if(Auth::user()->isGrant() && Auth::user()->id != $user->id) {
+                $user->is_active = 0;
+            }
         }
 
         $user->save();
@@ -145,7 +147,7 @@ class UserController extends AdminController
                 'email' => ['nullable', 'string', 'email', 'max:255'],
                 'password' => ['nullable', 'min:8', 'confirmed'],
                 'password_confirmation' => ['required_with:password', 'nullable', 'min:8'],
-                'role_ids' => ['required', 'array'],
+                'role_ids' => ['nullable', 'array'],
                 'is_active' => ['nullable', 'integer'],
             ],
             [
@@ -159,7 +161,7 @@ class UserController extends AdminController
                 'password.required' => 'Моля, въведете парола!',
                 'password.confirmed' => 'Паролите не съвпадат!',
                 'password_confirmation.required' => 'Моля, въведете парола за потвърждение!',
-                'role_ids.required' => 'Моля, въведете роля!'
+                'role_ids' => 'Моля, въведете роля!'
             ]
         );
     }

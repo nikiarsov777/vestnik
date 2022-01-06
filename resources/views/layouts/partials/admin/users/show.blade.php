@@ -235,6 +235,7 @@
                         @endif
                     @endforeach
                 @endforeach
+                @if(Auth::user()->isGrant() && Auth::user()->id != $user->id)
                 <div class="h4 row">
                     <div class="col-lg-4">
                         <label class=" leb-lg-12" for="password-confirm">{{ __('Роля:') }}</label>
@@ -248,7 +249,6 @@
                     </div>
                 </div>
 
-                @if(Auth::user()->isGrant() && Auth::user()->id != $user->id)
                 <div class="h4 row">
                     <div class="col-lg-4 ">
                         <label class=" leb-lg-12" for="is_active">{{ __('Активен:') }}</label>

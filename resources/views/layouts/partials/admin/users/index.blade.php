@@ -9,7 +9,7 @@ $num = 1;
         <tr>
             <th scope="col">#</th>
             <th scope="col">{{__('Име')}}</th>
-            <th scope="col">{{__('Майл')}}</th>
+            <th scope="col">{{__('Мейл')}}</th>
             <th scope="col">{{__('Роля')}}</th>
             <th scope="col">{{__('Активен')}}</th>
         </tr>

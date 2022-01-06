@@ -22,6 +22,8 @@ class UserService extends BaseService
             $this->params['users'] = $this->indexAdmin();
         } else if($this->user->isPrincipal()) {
             $this->params['users'] = $this->indexPrincipal($this->user->school);
+        } else {
+            $this->params['users'] = $this->indexCommon($this->user->id);
         }
 
         return $this->params;
@@ -61,7 +63,21 @@ class UserService extends BaseService
 
         return User::with('schools')
             ->whereHas('schools', function($q) use($principalId) {
-                $q->where('school_id', $principalId);
+                $q->where('school_id', $principalId)
+                    ->where('school_user.active', 1);
+            })
+            ->orderBy('first_name')
+            ->orderBy('last_name')
+            ->orderBy('email')
+            ->get();
+    }
+    public function indexCommon(int $userId): Collection
+    {
+
+        return User::with('schools')
+            ->whereHas('schools', function($q) use($userId) {
+                $q->where('user_id', $userId)
+                    ->where('school_user.active', 1);
             })
             ->orderBy('first_name')
             ->orderBy('last_name')
