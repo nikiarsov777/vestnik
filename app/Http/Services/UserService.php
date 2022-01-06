@@ -5,6 +5,8 @@ namespace App\Http\Services;
 
 use App\Models\BaseModel;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class UserService extends BaseService
 {
@@ -16,12 +18,11 @@ class UserService extends BaseService
 
     public function index(): array
     {
-
-        $this->params['users'] = User::orderBy('first_name')
-                        ->orderBy('last_name')
-                        ->orderBy('email')
-                        ->get();
-
+        if ($this->user->isAdmin()) {
+            $this->params['users'] = $this->indexAdmin();
+        } else if($this->user->isPrincipal()) {
+            $this->params['users'] = $this->indexPrincipal($this->user->school);
+        }
 
         return $this->params;
     }
@@ -46,10 +47,19 @@ class UserService extends BaseService
 
     }
 
+    public function indexAdmin(): Collection
+    {
+
+        return User::orderBy('first_name')
+            ->orderBy('last_name')
+            ->orderBy('email')
+            ->get();
+    }
+
     public function indexPrincipal(int $principalId): array
     {
 
-        $this->params['users'] = User::with('schools')
+        return User::with('schools')
             ->whereHas('schools', function($q) use($principalId) {
                 $q->where('school_id', $principalId);
             })
@@ -57,8 +67,5 @@ class UserService extends BaseService
             ->orderBy('last_name')
             ->orderBy('email')
             ->get();
-
-
-        return $this->params;
     }
 }

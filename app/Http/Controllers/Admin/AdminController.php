@@ -8,6 +8,7 @@ use App\Http\Services\ToolService;
 use App\Http\Services\UserService;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use function view;
 
 class AdminController extends Controller
@@ -18,6 +19,7 @@ class AdminController extends Controller
     protected $userService = null;
     protected $toolService = null;
     protected $roles = null;
+    protected $user = null;
     /**
      * Create a new controller instance.
      *
@@ -25,6 +27,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
+
         $this->middleware('auth');
         $this->categoryService = new CategoryService();
         $this->userService = new UserService();

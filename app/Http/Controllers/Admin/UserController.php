@@ -7,20 +7,17 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
 use function view;
 
 class UserController extends AdminController
 {
 
-
     public function index(Request $request)
     {
-        if (Auth::user()->isAdmin()) {
-            $users = $this->userService->index();
-        } else if(Auth::user()->isPrincipal()) {
-            $users = $this->userService->indexPrincipal(Auth::user()->school);
-        }
+        $this->userService->setUser(Auth::user());
+
+        $users = $this->userService->index();
+
         $params = array_merge(
             [
                 'web' => 'layouts.partials.admin.users.index',
@@ -30,11 +27,14 @@ class UserController extends AdminController
             ],
             $this->categories,
         );
+
         return view('admin', $params);
     }
 
     public function show(Request $request, int $id)
     {
+        $this->userService->setUser(Auth::user());
+
         $user = $this->userService->show($id);
         $params = array_merge(
             [
@@ -56,11 +56,15 @@ class UserController extends AdminController
 
     public function create(Request $request)
     {
+        $this->userService->setUser(Auth::user());
+
         $this->validator($request->all())->validate();
     }
 
     public function update(Request $request, int $id)
     {
+        $this->userService->setUser(Auth::user());
+        
         $validator = $this->validator($request->all());
         $user = User::findOrFail($id);
         if($validator->fails()) {

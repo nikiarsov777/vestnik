@@ -43,7 +43,7 @@ class CategoryService extends BaseService
 
     public function update(array $params): ?BaseModel
     {
-
+        return BaseModel();
     }
 
     public function delete(array $params): void

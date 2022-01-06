@@ -3,11 +3,12 @@
 namespace App\Http\Services;
 
 use App\Models\BaseModel;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 abstract class BaseService
 {
     protected $params = [];
+    protected $user = null;
 
     public function index(): array
     {
@@ -33,5 +34,10 @@ abstract class BaseService
     public function delete(array $params): void
     {
 
+    }
+
+    public function setUser(User $user)
+    {
+        $this->user = $user;
     }
 }
