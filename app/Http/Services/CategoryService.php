@@ -21,14 +21,16 @@ class CategoryService extends BaseService
         orderBy('name')->get();
 
         $subCategoriesArr = [];
+        $categoriesById = [];
 
         foreach ($this->params['categories'] as $category) {
             if ($category->parent_id != null) {
                 $subCategoriesArr[$category->parent_id][] = $category;
             }
+            $categoriesById[$category->id] = $category;
         }
 
-        return ['categories' => $this->params['categories'], 'subCategories' => $subCategoriesArr];
+        return ['categories' => $this->params['categories'], 'subCategories' => $subCategoriesArr, 'categoriesById' => $categoriesById];
     }
 
     public function show(string $name): ?BaseModel

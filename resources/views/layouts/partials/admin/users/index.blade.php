@@ -52,4 +52,5 @@ $num = 1;
             $num++;
         ?>
     @endforeach
+    </table>
 </ul>
