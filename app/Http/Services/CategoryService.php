@@ -16,13 +16,7 @@ class CategoryService extends BaseService
 
     public function index(): array
     {
-        $this->params['categories'] = Category::orderBy('order');
-        if (!$this->user->isAdmin()) {
-            $this->params['categories'] = $this->params['categories']->where('active' , '!=', 0)
-                                            ->where('show', '!=', 0);
-        }
-
-        $this->params['categories'] = orderBy('name')->get();
+        $this->params['categories'] = Category::orderBy('order')->get();
 
         $subCategoriesArr = [];
         $categoriesById = [];
@@ -60,7 +54,8 @@ class CategoryService extends BaseService
     public function menu(): array
     {
         $this->params['categories'] = Category::orderBy('order')->where('active' , '!=', 0)
-            ->where('show', '!=', 0)->orderBy('name')->get();
+            ->where('show', '!=', 0)
+            ->orderBy('name')->get();
 
         $subCategoriesArr = [];
         $categoriesById = [];

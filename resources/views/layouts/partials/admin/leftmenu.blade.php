@@ -1,13 +1,24 @@
 <div class="card">
+    <div class="card-header">
+        <h4>{{__('Меню')}}</h4>
+    </div>
     <div class="card-body">
-        <h2>{{__('Меню')}}</h2>
+        <ul class="vertical-menu">
+            <li><a href="/admin/users/{{Auth::user()->id}}">{{ __('Моят профил') }}</a></li>
+        </ul>
+    </div>
+    <hr>
+    @if(Auth::user()->isAdmin())
+    <div class="card-body">
         <ul class="vertical-menu">
             <li><a href="/admin/users">{{ __('Потребители') }}</a></li>
             <li><a href="/admin/categories">{{ __('Категории') }}</a></li>
         </ul>
     </div>
+    <hr>
+    @endif
     <div class="card-body">
-        <h2>{{__('Статии')}}</h2>
+        <h4>{{__('Статии')}}</h4>
         <ul class="vertical-menu">
             @foreach ($categories as $category)
                 @if ($category->parent_id == null)
