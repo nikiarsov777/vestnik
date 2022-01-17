@@ -92,4 +92,9 @@ class User extends Authenticatable
     {
         return $this->roles()->whereIn('name', ['admin', 'principal'])->exists();
     }
+
+    public function isStudent(): bool
+    {
+        return $this->roles()->whereIn('name', ['editor', 'publisher', 'visitor'])->exists();
+    }
 }

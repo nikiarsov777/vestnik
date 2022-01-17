@@ -261,6 +261,45 @@
 
                     </div>
                 </div>
+
+                <div class="h4 row">
+                    <div class="col-lg-4 ">
+                        <label class=" leb-lg-12" for="is_banned">{{ __('Забранен:') }}</label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="checkbox" class="form-control-sm form-check-input"
+                               id="is_banned" aria-describedby="is_bannedHelp"
+                               @if($user->is_banned) checked @endif
+                               name="is_banned" autofocus value="1">
+
+                    </div>
+                </div>
+                    <div class="h4 row">
+                        <div class="col-lg-4 ">
+                            <label class=" leb-lg-12" for="is_banned">{{ __('Потвърди пощата:') }}</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input type="checkbox" class="form-control-sm form-check-input"
+                                   id="email_verified_at" aria-describedby="email_verified_atHelp"
+                                   @if($user->email_verified_at != null) checked @endif
+                                   name="email_verified_at" autofocus value="1">
+
+                        </div>
+                    </div>
+                    @if($user->isStudent())
+                    <div class="h4 row">
+                        <div class="col-lg-4 ">
+                            <label class=" leb-lg-12" for="is_banned">{{ __('Потвърди училището:') }}</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input type="checkbox" class="form-control-sm form-check-input"
+                                   id="school_verified_at" aria-describedby="school_verified_atHelp"
+                                   @if($user->school_verified_at != null) checked @endif
+                                   name="school_verified_at" autofocus value="1">
+
+                        </div>
+                    </div>
+                    @endif
                 @endif
 
                 <div class="h4 row">

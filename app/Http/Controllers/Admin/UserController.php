@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\SchoolUser;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use function view;
@@ -97,6 +98,31 @@ class UserController extends AdminController
             }
         }
 
+        if(Auth::user()->isGrant() && Auth::user()->id != $user->id) {
+            if ($request->has('email_verified_at')) {
+                $user->email_verified_at = Carbon::now();
+            } else {
+                $user->email_verified_at = null;
+            }
+        }
+
+        if(Auth::user()->isGrant() && Auth::user()->id != $user->id) {
+            if ($request->has('school_verified_at')) {
+                $user->school_verified_at = Carbon::now();
+            } else {
+                $user->school_verified_at = null;
+            }
+        }
+
+        if(Auth::user()->isGrant() && Auth::user()->id != $user->id) {
+            if ($request->has('is_banned')) {
+                $user->is_banned = 1;
+            } else {
+                $user->is_banned = 0;
+            }
+        }
+
+
         $user->save();
 
         if($request->has('role_ids')) {
@@ -149,6 +175,9 @@ class UserController extends AdminController
                 'password_confirmation' => ['required_with:password', 'nullable', 'min:8'],
                 'role_ids' => ['nullable', 'array'],
                 'is_active' => ['nullable', 'integer'],
+                'is_banned' => ['nullable', 'integer'],
+                'email_verified_at' => ['nullable', 'integer'],
+                'school_verified_at' => ['nullable', 'integer'],
             ],
             [
                 'school.gt' => 'Моля, изберете училище!',
