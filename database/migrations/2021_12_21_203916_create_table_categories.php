@@ -17,9 +17,9 @@ class CreateTableCategories extends Migration
             $table->id();
             $table->unsignedBigInteger('parent_id')->nullable()->default(null)->index();
             $table->string('name', 50)->index();
-            $table->char('active')->default(1);
-            $table->char('show')->default(1);
-            $table->char('order');
+            $table->unsignedTinyInteger('active')->default(1);
+            $table->unsignedTinyInteger('show')->default(1);
+            $table->unsignedInteger('order');
             $table->timestamps();
         });
     }

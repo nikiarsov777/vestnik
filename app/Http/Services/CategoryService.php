@@ -16,9 +16,13 @@ class CategoryService extends BaseService
 
     public function index(): array
     {
+        $this->params['categories'] = Category::orderBy('order');
+        if (!$this->user->isAdmin()) {
+            $this->params['categories'] = $this->params['categories']->where('active' , '!=', 0)
+                                            ->where('show', '!=', 0);
+        }
 
-        $this->params['categories'] = Category::orderBy('order')->
-        orderBy('name')->get();
+        $this->params['categories'] = orderBy('name')->get();
 
         $subCategoriesArr = [];
         $categoriesById = [];
@@ -51,5 +55,23 @@ class CategoryService extends BaseService
     public function delete(array $params): void
     {
 
+    }
+
+    public function menu(): array
+    {
+        $this->params['categories'] = Category::orderBy('order')->where('active' , '!=', 0)
+            ->where('show', '!=', 0)->orderBy('name')->get();
+
+        $subCategoriesArr = [];
+        $categoriesById = [];
+
+        foreach ($this->params['categories'] as $category) {
+            if ($category->parent_id != null) {
+                $subCategoriesArr[$category->parent_id][] = $category;
+            }
+            $categoriesById[$category->id] = $category;
+        }
+
+        return ['categories' => $this->params['categories'], 'subCategories' => $subCategoriesArr, 'categoriesById' => $categoriesById];
     }
 }

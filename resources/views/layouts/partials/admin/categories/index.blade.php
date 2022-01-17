@@ -30,36 +30,36 @@ $num = 1;
             <tr>
                 <td>{{$num}}</td>
                 <td >
-                    <a href="/admin/categories/{{$category->id}}">{{$category->name}}</a>
+                    <a href="/admin/categories/{{$category->slug}}">{{$category->name}}</a>
                 </td>
                 <td >
-                    <a href="/admin/categories/{{$category->id}}">
+                    <a href="/admin/categories/{{$category->slug}}">
                         @if($category->parent_id != null)
                             {{$categoriesById[$category->parent_id]->name}}
                         @endif
                     </a>
                 </td>
                 <td>
-                    <a href="/admin/categories/{{$category->id}}">
+                    <a href="/admin/categories/{{$category->slug}}">
                         @if($category->active)
                             <span class="glyphicon glyphicon-ok"></span>
                         @endif
                     </a>
                 </td>
                 <td>
-                    <a href="/admin/categories/{{$category->id}}">
+                    <a href="/admin/categories/{{$category->slug}}">
                         @if($category->show)
                             <span class="glyphicon glyphicon-ok"></span>
                         @endif
                     </a>
                 </td>
                 <td>
-                    <a href="/admin/categories/{{$category->id}}">
+                    <a href="/admin/categories/{{$category->slug}}">
                         <span class="">{{$category->order}}</span>
                     </a>
                 </td>
                 <td>
-                    <a href="/admin/categories/{{$category->id}}">
+                    <a href="/admin/categories/{{$category->slug}}">
                         <span class="">{{$category->slug}}</span>
                     </a>
                 </td>

@@ -32,7 +32,7 @@ class AdminController extends Controller
         $this->categoryService = new CategoryService();
         $this->userService = new UserService();
         $this->toolService = new ToolService();
-        $this->categories = $this->categoryService->index();
+        $this->categories = $this->categoryService->menu();
         $this->schools = $this->toolService->getSchools();
 
         $this->roles = Role::all();

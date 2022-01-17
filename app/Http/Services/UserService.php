@@ -6,7 +6,6 @@ namespace App\Http\Services;
 use App\Models\BaseModel;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Auth;
 
 class UserService extends BaseService
 {

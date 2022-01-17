@@ -21,8 +21,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Auth::routes();
 Route::get('/admin', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
 
-Route::get('/admin/categories/{name}', [\App\Http\Controllers\Admin\CategoryController::class, 'show']);
+Route::get('/admin/categories/{name}', [\App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('categories.show');;
 Route::get('/admin/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'index']);
+Route::post('/admin/categories/{slug}', [\App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('categories.update');
 Route::get('/admin/users/{id}', [\App\Http\Controllers\Admin\UserController::class, 'show'])->name('users.show');
 Route::get('/admin/users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('users');
 Route::post('/admin/users', [\App\Http\Controllers\Admin\UserController::class, 'create'])->name('users.create');
